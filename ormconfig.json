@@ -1,0 +1,9 @@
+{
+    "type": "sqlite",
+    "database": "./geoapp/src/database/database.sqlite",
+    "migrations": ["./geoapp/src/database/migrations/**.ts"],
+    "entities": ["./geoapp/src/entities/**.ts"],
+    "cli": {
+        "migrationsDir": "./geoapp/src/database/migrations"
+    }
+}
