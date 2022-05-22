@@ -1,0 +1,2 @@
+# Backend-GeoApp-Terralab2022-2
+Usuários de um determinado nicho, para descrever locais de interesse em uma área geográfica, tem a necessidade de armazenar pontos geográficos (latitude e longitude) com uma descrição (Ex. escola, farmácia). Para tal aplicação um backend é necessário. Desenvolva um backend em Node.JS que permita o cadastro, visualização, alteração e remoção de usuários e pontos geográficos. O código deverá incluir testes unitários automatizados utilizando o framework Jest e adicionado em seu repositório pessoal público no Github. 
