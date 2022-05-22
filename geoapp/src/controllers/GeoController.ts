@@ -25,4 +25,15 @@ export class GeoController {
 
         return response.json(list);
     };
+
+    async delete(request: Request, response: Response) {
+        const { desc } = request.params;
+        const { latitude, longitude } = request.body;
+
+        const geoService = new GeoService();
+
+        const geo = await geoService.delete(desc);
+
+        return response.json(geo);
+    };
 };

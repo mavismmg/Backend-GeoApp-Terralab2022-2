@@ -1,5 +1,5 @@
 import { getCustomRepository, Repository } from "typeorm";
-import { Geo } from "../entities/Geo.js";
+import { Geo } from "../entities/Geo";
 import { GeoRepository } from "../repositories/GeoRepository";
 
 interface IGeoCreate {
@@ -33,5 +33,13 @@ export class GeoService {
         });
 
         return list;
+    };
+
+    async delete(desc: string) {
+        await this.geoRepository.createQueryBuilder()
+        .delete()
+        .from(Geo)
+        .where("desc = :desc", { desc })
+        .execute();
     };
 };

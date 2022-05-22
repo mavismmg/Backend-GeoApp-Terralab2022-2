@@ -25,28 +25,33 @@ export class CreateGeo1653233160791 implements MigrationInterface {
                         isNullable: true
                     },
                     {
+                        name: 'delete_at',
+                        type: 'timestamp',
+                        default: 'now()'
+                    },
+                    {
                         name: 'created_at',
                         type: 'timestamp',
                         default: 'now()'
                     }
                 ],
 
-                // foreignKeys: [
-                //     {
-                //         name: "foreignKey-User",
-                //         referencedTableName: "users",
-                //         referencedColumnNames: ["id"],
-                //         columnNames: ["desc"],
-                //         onDelete: "SET NULL",
-                //         onUpdate: "SET NULL"
-                //     }
-                // ]
+                foreignKeys: [
+                    {
+                        name: "foreignKey-User",
+                        referencedTableName: "users",
+                        referencedColumnNames: ["id"],
+                        columnNames: ["desc"],
+                        onDelete: "SET NULL",
+                        onUpdate: "SET NULL"
+                    }
+                ]
             })
         )
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable('AdicionarPonto')
+        await queryRunner.dropTable('locations')
     }
 
 }

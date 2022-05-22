@@ -9,7 +9,7 @@ export class UsersService {
         this.usersRepository = getCustomRepository(UsersRepository);
     }
 
-    async create(email: string) {
+    async create(email: string, username: string) {
         const userExists = await this.usersRepository.findOne({
             email
         });
@@ -19,7 +19,8 @@ export class UsersService {
         };
 
         const user = this.usersRepository.create({
-            email
+            email,
+            username
         });
 
         await this.usersRepository.save(user);
@@ -28,10 +29,18 @@ export class UsersService {
     };
 
     async findByEmail(email: string) {
-        const id = await this.usersRepository.findOne({
+        const users = await this.usersRepository.findOne({
             email
         });
 
-        return id;
+        return users;
+    };
+
+    async delete(email: string) {
+        await this.usersRepository.createQueryBuilder()
+        .delete()
+        .from(User)
+        .where("email = :email", { email })
+        .execute();
     };
 };
